@@ -1,0 +1,72 @@
+﻿@model MVC.Apresentação.ViewModels.CidadeEstadoAggregateViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<hr />
+<form asp-action="Create" class="col-md-12">
+    <div class="row justify-content-around">
+        <div class="col-md-5">
+            <h4>Cidade</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeCidade" class="control-label"></label>
+                <input asp-for="NomeCidade" class="form-control" />
+                <span asp-validation-for="NomeCidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="População" class="control-label"></label>
+                <input asp-for="População" class="form-control" />
+                <span asp-validation-for="População" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeEstado" class="control-label"></label>
+                <input asp-for="NomeEstado" class="form-control" />
+                <span asp-validation-for="NomeEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <select asp-for="EstadoEntityId"
+                        asp-items="Model.Estados"
+                        class="form-control">
+                    <option value="">Selecione um estado</option>
+                </select>
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <h4>Estado</h4>
+            <div class="form-group">
+                <label asp-for="NomeDoEstado" class="control-label"></label>
+                <input asp-for="NomeDoEstado" class="form-control" />
+                <span asp-validation-for="NomeDoEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SiglaEstado" class="control-label"></label>
+                <input asp-for="SiglaEstado" class="form-control" />
+                <span asp-validation-for="SiglaEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PopulaçãoEstado" class="control-label"></label>
+                <input asp-for="PopulaçãoEstado" class="form-control" />
+                <span asp-validation-for="PopulaçãoEstado" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
