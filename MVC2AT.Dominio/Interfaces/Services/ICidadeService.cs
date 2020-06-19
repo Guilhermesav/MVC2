@@ -10,7 +10,7 @@ namespace MVC2AT.Dominio.Model.Interfaces.Services
     {
         Task<IEnumerable<CidadeEntity>> GetAllAsync();
         Task<CidadeEntity> GetByIdAsync(int id);
-        Task InsertAsync(CidadeEstadoAggregateEntity cidadeEstadoAggregateEntity);
+        Task InsertAsync(CidadeEntity cidadeEntity);
         Task UpdateAsync(CidadeEntity updatedEntity); 
         Task DeleteAsync(int id);
     }

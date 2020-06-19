@@ -33,9 +33,9 @@ namespace MVC2AT.Dominio.Service
             return await _cidadeRepository.GetByIdAsync(id);
         }
 
-        public async Task InsertAsync(CidadeEstadoAggregateEntity cidadeEstadoAggregateEntity)
+        public async Task InsertAsync(CidadeEntity cidadeEntity)
         {
-            await _cidadeRepository.InsertAsync(cidadeEstadoAggregateEntity.CidadeEntity);
+            await _cidadeRepository.InsertAsync(cidadeEntity);
         }
 
         public async Task UpdateAsync(CidadeEntity insertedModel)

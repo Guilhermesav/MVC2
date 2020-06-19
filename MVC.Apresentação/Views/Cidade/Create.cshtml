@@ -1,5 +1,4 @@
-﻿@model MVC.Apresentação.ViewModels.CidadeEstadoAggregateViewModel
-
+﻿@model MVC2AT.Dominio.Model.Entity.CidadeEntity
 
 @{
     ViewData["Title"] = "Create";
@@ -14,9 +13,9 @@
             <h4>Cidade</h4>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NomeCidade" class="control-label"></label>
-                <input asp-for="NomeCidade" class="form-control" />
-                <span asp-validation-for="NomeCidade" class="text-danger"></span>
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="População" class="control-label"></label>
@@ -45,27 +44,9 @@
                 <a asp-action="Index">Back to List</a>
             </div>
         </div>
-
-        <div class="col-md-5">
-            <h4>Estado</h4>
-            <div class="form-group">
-                <label asp-for="NomeDoEstado" class="control-label"></label>
-                <input asp-for="NomeDoEstado" class="form-control" />
-                <span asp-validation-for="NomeDoEstado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SiglaEstado" class="control-label"></label>
-                <input asp-for="SiglaEstado" class="form-control" />
-                <span asp-validation-for="SiglaEstado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PopulaçãoEstado" class="control-label"></label>
-                <input asp-for="PopulaçãoEstado" class="form-control" />
-                <span asp-validation-for="PopulaçãoEstado" class="text-danger"></span>
-            </div>
-        </div>
     </div>
 </form>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

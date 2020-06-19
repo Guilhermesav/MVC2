@@ -29,7 +29,7 @@ namespace MVC2ATApi.Controllers
         public async Task<ActionResult<IEnumerable<CidadeEntity>>> GetCidades()
         {
             var cidades = await _cidadeService.GetAllAsync();
-            return Ok(cidades.ToList());
+            return cidades.ToList();
         }
 
         // GET: api/Cidade/5
@@ -80,16 +80,16 @@ namespace MVC2ATApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<CidadeEntity>> PostCidadeEntity(CidadeEstadoAggregateEntity cidadeEstadoAggregateEntity)
+        public async Task<ActionResult<CidadeEntity>> PostCidadeEntity(CidadeEntity cidadeEntity)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             try
             {
-                await _cidadeService.InsertAsync(cidadeEstadoAggregateEntity);
+                await _cidadeService.InsertAsync(cidadeEntity);
 
-                return Ok(cidadeEstadoAggregateEntity);
+                return Ok(cidadeEntity);
             }
             catch (EntityValidationException e)
             {

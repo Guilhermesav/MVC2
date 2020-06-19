@@ -79,11 +79,11 @@ namespace MVC.Apresentação.HttpServices
             return null;
         }
 
-        public async Task InsertAsync(CidadeEstadoAggregateEntity cidadeEstadoAggregateEntity)
+        public async Task InsertAsync(CidadeEntity cidadeEntity)
         {
             var uriPath = $"{_estadoHttpOptions.CurrentValue.CidadePath}";
 
-            var httpContent = new StringContent(JsonConvert.SerializeObject(cidadeEstadoAggregateEntity), Encoding.UTF8, "application/json");
+            var httpContent = new StringContent(JsonConvert.SerializeObject(cidadeEntity), Encoding.UTF8, "application/json");
 
             var httpResponseMessage = await _httpClient.PostAsync(uriPath, httpContent);
 

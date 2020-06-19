@@ -60,6 +60,7 @@ namespace MVC2AT.Data.Repository
             try
             {
                 _context.Update(updatedEntity);
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {

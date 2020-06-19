@@ -61,9 +61,8 @@ namespace MVC.Apresentação.Controllers
         // GET: CidadeEntities/Create
         public async Task<IActionResult> Create()
         {
-            var cidadeViewModel = new CidadeEstadoAggregateViewModel(await _estadoService.GetAllAsync());
 
-            return View(cidadeViewModel);
+            return View();
         }
 
         // POST: CidadeEntities/Create
@@ -71,15 +70,13 @@ namespace MVC.Apresentação.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CidadeEstadoAggregateViewModel cidadeEstadoViewModel)
+        public async Task<IActionResult> Create(CidadeEntity cidadeEntity)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var cidadeEstadoAggregateEntity = cidadeEstadoViewModel.ToAggregateEntity();
-
-                    await _cidadeService.InsertAsync(cidadeEstadoAggregateEntity);
+                    await _cidadeService.InsertAsync(cidadeEntity);
                     return RedirectToAction(nameof(Index));
                 }
                 catch(EntityValidationException erro)
@@ -87,7 +84,7 @@ namespace MVC.Apresentação.Controllers
                     ModelState.AddModelError(erro.PropertyName, erro.Message);
                 }
             }
-            return View(cidadeEstadoViewModel);
+            return View(cidadeEntity);
         }
 
         // GET: CidadeEntities/Edit/5

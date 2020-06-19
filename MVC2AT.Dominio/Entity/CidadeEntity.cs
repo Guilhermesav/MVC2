@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MVC2AT.Dominio.Model.Entity
 {
@@ -19,5 +20,7 @@ namespace MVC2AT.Dominio.Model.Entity
         public int EstadoEntityId { get; set; }
 
         public EstadoEntity Estado { get; set; }
+
+        public List<SelectListItem> Estados { get; }
     }
 }
