@@ -61,8 +61,9 @@ namespace MVC.Apresentação.Controllers
         // GET: CidadeEntities/Create
         public async Task<IActionResult> Create()
         {
+            var cidades = new CidadeViewModel(await _estadoService.GetAllAsync());
 
-            return View();
+            return View(cidades);
         }
 
         // POST: CidadeEntities/Create
